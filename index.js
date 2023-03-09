@@ -7,6 +7,7 @@ require('dotenv').config();
 const express = require('express')
 const cors = require('cors');
 const sequelize = require('./db.js')
+const fileUpload = require('express-fileupload')
 const models = require('./models/models.js');
 const router = require('./routers/router.js');
 const errorHandlingMiddleware = require('./middleware/ErrorHandlingMiddleware.js');
@@ -16,7 +17,8 @@ const app = express();
 
 app.use(cors());
 app.use(express.json());
-app.use('/api', router);
+app.use(fileUpload({})); // работа с файлами в express
+app.use('/api', router);    
 
 app.use(errorHandlingMiddleware); //middleware обработки ошибок подключается последнм в цепочке
 const start = async () => {
