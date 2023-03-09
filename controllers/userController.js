@@ -1,3 +1,5 @@
+const ApiError = require("../error/AppError");
+
 class userController {
     async registration(req, res) {
 
@@ -6,7 +8,10 @@ class userController {
 
     }
     async checkAuth(req, res) {
-
+        const {id} = req.query;
+        if(!id) {
+            return res.send(ApiError.forbidden('Не найден id'))
+        }
     }
 }
 

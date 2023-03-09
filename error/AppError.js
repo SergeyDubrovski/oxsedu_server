@@ -11,6 +11,7 @@ class ApiError extends Error {  // наследуется от класса Erro
         return new ApiError(500, message)
     }
     static forbidden(message) {
+        
         return new ApiError(403, message)
     }
 
