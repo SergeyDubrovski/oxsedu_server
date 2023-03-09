@@ -1,6 +1,6 @@
 //установить на сервер  PostgreSQL, 
 //запустить pgAdmin, создать новую базу данных
-require('dotenv').config();
+
 const { Sequelize } = require('sequelize')
 
 
@@ -16,3 +16,4 @@ module.exports = new Sequelize(
 
 )
 
+// Настройка соединения

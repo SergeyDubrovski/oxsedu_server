@@ -44,11 +44,13 @@ const DeviceInfo = sequelize.define('deviceInfo', {
 
 })
 
+//Промежуточная зависимость
 const TypeBrand = sequelize.define('typeBrand', {
     id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
 
 })
 
+// Установка зависимостей
 User.hasOne(Basket);
 Basket.belongsTo(User);
 
@@ -67,6 +69,7 @@ BasketDevise.belongsTo(Device);
 Device.hasMany(DeviceInfo);
 DeviceInfo.belongsTo(Device);
 
+// Создание равнозначных зависимостей
 Type.belongsToMany(Brand, { through: TypeBrand });
 Brand.belongsToMany(Type, { through: TypeBrand });
 
