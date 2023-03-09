@@ -1,6 +1,6 @@
-class ApiError extends Error {
+class ApiError extends Error {  // наследуется от класса Error
     constructor(status, message) {
-        super();
+        super();             
         this.status = status;
         this.message = message;
     }
