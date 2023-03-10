@@ -8,6 +8,7 @@ const express = require('express')
 const cors = require('cors');
 const sequelize = require('./db.js')
 const fileUpload = require('express-fileupload')
+const path = require('path')
 const models = require('./models/models.js');
 const router = require('./routers/router.js');
 const errorHandlingMiddleware = require('./middleware/ErrorHandlingMiddleware.js');
@@ -18,6 +19,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 app.use(fileUpload({})); // работа с файлами в express
+app.use(express.static(path.resolve(__dirname, 'static'))); // доступ к папке sttic из браузера
 app.use('/api', router);    
 
 app.use(errorHandlingMiddleware); //middleware обработки ошибок подключается последнм в цепочке
