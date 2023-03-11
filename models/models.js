@@ -23,7 +23,7 @@ const Device = sequelize.define('device', {
     id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
     name: { type: DataTypes.STRING, unique: true, allowNull: false },
     price: { type: DataTypes.INTEGER, allowNull: false },
-    img: { type: DataTypes.STRING,allowNull: false }
+    img: { type: DataTypes.STRING, allowNull: false }
 
 })
 
@@ -66,7 +66,7 @@ Device.belongsTo(Brand);
 Device.hasMany(BasketDevise);
 BasketDevise.belongsTo(Device);
 
-Device.hasMany(DeviceInfo);
+Device.hasMany(DeviceInfo, { as: 'info' });
 DeviceInfo.belongsTo(Device);
 
 // Создание равнозначных зависимостей
